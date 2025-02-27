@@ -5,7 +5,7 @@ public class ReloadScene : MonoBehaviour
 {
     public string reloadScene;
     public float delay = 1;
-    public void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         StartCoroutine(LoadSceneCR());
     }
@@ -13,5 +13,9 @@ public class ReloadScene : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         UnityEngine.SceneManagement.SceneManager.LoadScene(reloadScene);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        StartCoroutine(LoadSceneCR());
     }
 }
