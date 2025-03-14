@@ -1,30 +1,34 @@
 using UnityEngine;
 using UnityEngine.AI;
-public class playerbehaviour : MonoBehaviour
+
+public class NavMeshAvoidance : MonoBehaviour
 {
-    public Transform target; 
-    public float avoidanceRadius = 5f;
-    public LayerMask dangerMask; 
-    public LayerMask seekMask; 
+    public Transform target; // The goal destination
+    public float avoidanceRadius = 5f; // Distance to avoid obstacles
+    public LayerMask dangerMask; // LayerMask for dangerous objects
+    public LayerMask seekMask; // LayerMask for objects to seek
     private NavMeshAgent agent;
-    private bool canMove = false;
+    public bool canMove = false;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+       
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            canMove = true;
+            canMove = true;        
         }
 
-        if (canMove)
+
+        if (canMove) 
         {
+            agent.SetDestination(target.position);
             SeekTargets();
-            AvoidDangers();
+        AvoidDangers();
         }
     }
 
@@ -78,5 +82,3 @@ public class playerbehaviour : MonoBehaviour
         }
     }
 }
-
-
