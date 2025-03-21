@@ -24,7 +24,9 @@ public class NavMeshAvoidance : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            canMove = true;        
+            canMove = true;  
+            //On Pressing S, refresh the list of seekable objects so it inlcudes all added lights.
+            seeklights = FindObjectsByType<SeekableObjectr>(FindObjectsSortMode.None).ToList();      
         }
 
 
@@ -37,11 +39,9 @@ public class NavMeshAvoidance : MonoBehaviour
             }
             else
             {
-                if  ((transform.position - target.position).magnitude >= 0.25f)
-                {
-                    
-                }
-                else
+                float distance = (transform.position - target.position).magnitude;
+                //DAMON :: The distance where it reaches the light is actually > 0.9f so changed the check to 1f
+                if  (distance < 1f)
                 {
                     HaveTargetToGoTo();
                     agent.SetDestination(target.position);
@@ -69,13 +69,23 @@ public class NavMeshAvoidance : MonoBehaviour
 
             foreach (SeekableObjectr so in unvisited)
             {
-                agent.SetDestination(so.transform.position);
-                if (distance >= agent.remainingDistance)
+                //DAMON: This is the code that calculates the distance to the light using navmesh path
+                NavMeshPath path = new NavMeshPath();
+                float lengthSoFar = 0;
+                if (agent.CalculatePath(so.transform.position, path))
                 {
-                    distance = agent.remainingDistance;                   
+                    Vector3 prevPoint = transform.position;
+                    foreach (Vector3 corner in path.corners)
+                    {
+                        lengthSoFar += Vector3.Distance(prevPoint, corner);
+                        prevPoint = corner;
+                    }
+                }
+                if (distance >= lengthSoFar)
+                {
+                    distance = lengthSoFar;
                     closest = so;
                 }
-                agent.SetDestination(transform.position);
             }
 
             target = closest.transform;
