@@ -22,15 +22,23 @@ public class PickupHandler : MonoBehaviour
         
     }
     private void OnTriggerEnter(Collider collision)
-
     {
         if (collision.tag == "Player")
         {
-            //ScoreHandler scoreHandler = collision.collider.gameObject.GetComponent<ScoreHandler>();
-            scoreHandler.scoreCount++;
-            Destroy(gameObject, 0.5f);
-            UnityEngine.SceneManagement.SceneManager.LoadScene(SceneName);
-
+            NavMeshAvoidance playerBehaviour = null;
+            collision.gameObject.TryGetComponent<NavMeshAvoidance>(out playerBehaviour);
+            if (playerBehaviour != null)
+            {
+                // Set the emblem part to be visible
+                playerBehaviour.emblemPartVisible = true;
+            }
+            if (scoreHandler != null)
+            {
+                //ScoreHandler scoreHandler = collision.collider.gameObject.GetComponent<ScoreHandler>();
+                scoreHandler.scoreCount++;
+                Destroy(gameObject, 0.5f);
+                UnityEngine.SceneManagement.SceneManager.LoadScene(SceneName);
+            }
         }
     }
 }

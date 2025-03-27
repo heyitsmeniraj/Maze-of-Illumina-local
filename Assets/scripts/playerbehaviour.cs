@@ -14,6 +14,8 @@ public class NavMeshAvoidance : MonoBehaviour
     private NavMeshAgent agent;
     public bool canMove = false;
 
+    public bool emblemPartVisible = false;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -39,7 +41,10 @@ public class NavMeshAvoidance : MonoBehaviour
             }
             else
             {
-                float distance = (transform.position - target.position).magnitude;
+                //DAMON :: Check only XZ plane and ignore
+                Vector3 mePosXZ = new Vector3(transform.position.x, 0, transform.position.z);
+                Vector3 targetPosXZ = new Vector3(target.position.x, 0, target.position.z);
+                float distance = (mePosXZ - targetPosXZ).magnitude;
                 //DAMON :: The distance where it reaches the light is actually > 0.9f so changed the check to 1f
                 if  (distance < 1f)
                 {
@@ -60,36 +65,40 @@ public class NavMeshAvoidance : MonoBehaviour
             unvisited = seeklights.Where(x => x.visited == false).ToList();
             float distance = 10000000;
             SeekableObjectr closest = null;
-            print(unvisited.Count);
             if (unvisited.Count == 0)
             {
-                target = emblemPart;
-                return true;
-            }
-
-            foreach (SeekableObjectr so in unvisited)
-            {
-                //DAMON: This is the code that calculates the distance to the light using navmesh path
-                NavMeshPath path = new NavMeshPath();
-                float lengthSoFar = 0;
-                if (agent.CalculatePath(so.transform.position, path))
+                if (emblemPartVisible)
                 {
-                    Vector3 prevPoint = transform.position;
-                    foreach (Vector3 corner in path.corners)
+                    target = emblemPart;
+                    return true;
+                }
+                else return false;
+            }
+            else
+            {
+                foreach (SeekableObjectr so in unvisited)
+                {
+                    //DAMON: This is the code that calculates the distance to the light using navmesh path
+                    NavMeshPath path = new NavMeshPath();
+                    float lengthSoFar = 0;
+                    if (agent.CalculatePath(so.transform.position, path))
                     {
-                        lengthSoFar += Vector3.Distance(prevPoint, corner);
-                        prevPoint = corner;
+                        Vector3 prevPoint = transform.position;
+                        foreach (Vector3 corner in path.corners)
+                        {
+                            lengthSoFar += Vector3.Distance(prevPoint, corner);
+                            prevPoint = corner;
+                        }
+                    }
+                    if (distance >= lengthSoFar)
+                    {
+                        distance = lengthSoFar;
+                        closest = so;
                     }
                 }
-                if (distance >= lengthSoFar)
-                {
-                    distance = lengthSoFar;
-                    closest = so;
-                }
+                target = closest.transform;
+                return true;
             }
-
-            target = closest.transform;
-            return true;
         }
         else
         {
