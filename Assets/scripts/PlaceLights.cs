@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
 
 public class PlaceLights : MonoBehaviour
 {
     bool finishedPlacing = false;
     public GameObject seekLightPrefab;
-    public Collider MazeArea;
+    public Collider[] MazeArea;
+    public Collider ExcludeArea;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,15 +36,26 @@ public class PlaceLights : MonoBehaviour
             Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
             objectPos.y = 1;
 
-            if (MazeArea.bounds.Contains(objectPos))
+            if (ExcludeArea.bounds.Contains(objectPos))
             {
-                Instantiate(seekLightPrefab, objectPos, Quaternion.identity);
+                print("Cannot place light here");
+
             }
             else
             {
-                print("Cannot place light outside maze area");
+                foreach (Collider mazeCollider in MazeArea)
+                {
+                    if (mazeCollider.bounds.Contains(objectPos))
+                    {
+                        Instantiate(seekLightPrefab, objectPos, Quaternion.identity);
+                        return;
+                    }
+                    else
+                    {
+                        print("Cannot place light outside maze area");
+                    }
+                }
             }
-
         }
     }
 }

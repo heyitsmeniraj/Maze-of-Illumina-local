@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7008491994742376669
+--- !u!1 &4822814595333620131
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8789223395021477092}
-  - component: {fileID: 4586731302208405464}
-  - component: {fileID: 7622260137220060445}
-  - component: {fileID: 6738484557902084439}
-  - component: {fileID: 760846349047036456}
+  - component: {fileID: 2967177963203885728}
+  - component: {fileID: 3520884939547205267}
+  - component: {fileID: 8148753590181213135}
   m_Layer: 7
-  m_Name: seek light
+  m_Name: visuals
   m_TagString: seeks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8789223395021477092
+--- !u!4 &2967177963203885728
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7008491994742376669}
+  m_GameObject: {fileID: 4822814595333620131}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9957599, z: -0, w: 0.09199049}
-  m_LocalPosition: {x: 11.81, y: 1.07, z: 4.01}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.22683115, y: 0.22683115, z: 0.22683115}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 8789223395021477092}
   m_LocalEulerAnglesHint: {x: 0, y: 169.444, z: 0}
---- !u!33 &4586731302208405464
+--- !u!33 &3520884939547205267
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7008491994742376669}
+  m_GameObject: {fileID: 4822814595333620131}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7622260137220060445
+--- !u!23 &8148753590181213135
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7008491994742376669}
+  m_GameObject: {fileID: 4822814595333620131}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -88,6 +86,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7008491994742376669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8789223395021477092}
+  - component: {fileID: 6738484557902084439}
+  - component: {fileID: 760846349047036456}
+  m_Layer: 7
+  m_Name: seek light
+  m_TagString: seeks
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8789223395021477092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7008491994742376669}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2967177963203885728}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &6738484557902084439
 SphereCollider:
   m_ObjectHideFlags: 0

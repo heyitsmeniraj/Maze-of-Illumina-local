@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Shader Graph
+  m_Name: Base Test MAt
   m_Shader: {fileID: -6465566751694194690, guid: d41c881020c65614ca2db963489b0299,
     type: 3}
   m_Parent: {fileID: 0}
@@ -39,7 +39,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Base_Map:
-        m_Texture: {fileID: 2800000, guid: 7b428503cd2f6db41b94673676635759, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0514d897b104bd140827aeb1972fc6f9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalFromTexture_d7d12281437041c7994795ef2cc519a9_Texture_0_Texture2D:
@@ -47,7 +47,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
-        m_Texture: {fileID: 2800000, guid: ec55d33cab05fe74ea50e4f8086ee8b9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1d23ac16fc8c45e4d812f5073d484916, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_0e59417aa64a4f5c9cab5ae950d589f7_Texture_1_Texture2D:
