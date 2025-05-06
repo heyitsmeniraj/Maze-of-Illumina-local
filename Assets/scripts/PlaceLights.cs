@@ -39,7 +39,7 @@ public class PlaceLights : MonoBehaviour
             if (ExcludeArea.bounds.Contains(objectPos))
             {
                 print("Cannot place light here");
-
+                FindAnyObjectByType<NotificationText>().ShowMessage("Cannot place light here");
             }
             else
             {
@@ -53,6 +53,7 @@ public class PlaceLights : MonoBehaviour
                     else
                     {
                         print("Cannot place light outside maze area");
+                        FindAnyObjectByType<NotificationText>().ShowMessage("Cannot place light outside the maze");
                     }
                 }
             }

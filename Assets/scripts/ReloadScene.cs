@@ -7,6 +7,7 @@ public class ReloadScene : MonoBehaviour
     public float delay = 1;
     void OnTriggerEnter(Collider other)
     {
+        FindAnyObjectByType<NotificationText>().ShowMessage("You hit a danger object :(.  Level will restart shortly");
         StartCoroutine(LoadSceneCR());
     }
     IEnumerator LoadSceneCR()
