@@ -25,8 +25,21 @@ public class PlaceLights : MonoBehaviour
         {
             PlaceSeekLight();
         }
-    }
+        
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (finishedPlacing = !true)
+            {
 
+            }
+        }
+
+    }
+    public void CantMove()
+    {
+        FindAnyObjectByType<NotificationText>().ShowMessage("Place Lights by clicking left mouse");
+        
+    }
     public void PlaceSeekLight()
     {
         if (!finishedPlacing)
