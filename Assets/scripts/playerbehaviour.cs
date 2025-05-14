@@ -13,7 +13,7 @@ public class NavMeshAvoidance : MonoBehaviour
     public LayerMask seekMask; // LayerMask for objects to seek
     private NavMeshAgent agent;
     public bool canMove = false;
-
+    public Animator animator;
     public bool emblemPartVisible = false;
 
     void Start()
@@ -24,6 +24,11 @@ public class NavMeshAvoidance : MonoBehaviour
 
     void Update()
     {
+        Vector3 velocity = agent.velocity;
+        velocity.y = 0;
+        float speed = agent.desiredVelocity.magnitude;
+
+        animator.SetFloat("Speed", speed);
         if (Input.GetKeyDown(KeyCode.S))
         {
             canMove = true;  
@@ -136,26 +141,4 @@ public class NavMeshAvoidance : MonoBehaviour
             }
         }
     }
-
-    //void SeekTargets()
-    //{
-    //    Collider[] seeks = Physics.OverlapSphere(transform.position, avoidanceRadius, seekMask);
-    //    if (seeks.Length > 0)
-    //    {
-    //        Transform closestTarget = seeks[0].transform;
-    //        float closestDistance = Vector3.Distance(transform.position, closestTarget.position);
-
-    //        foreach (Collider seek in seeks)
-    //        {
-    //            float distance = Vector3.Distance(transform.position, seek.transform.position);
-    //            if (distance < closestDistance)
-    //            {
-    //                closestTarget = seek.transform;
-    //                closestDistance = distance;
-    //            }
-    //        }
-
-    //        agent.SetDestination(closestTarget.position); // Move towards the closest seekable object
-    //    }
-    //}
 }

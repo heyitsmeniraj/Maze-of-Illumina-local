@@ -3369,6 +3369,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6982812146204527121, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982812146204527121, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6986324543679806377, guid: 64dce48905ffd9b4293e595fa6941544,
         type: 3}
       propertyPath: m_Layer
@@ -3550,6 +3560,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   canMove: 0
+  animator: {fileID: 4416926083347132229}
   emblemPartVisible: 0
 --- !u!54 &1762682268
 Rigidbody:
@@ -4173,6 +4184,12 @@ CanvasRenderer:
 --- !u!1 &4416926083347132227 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,
+    type: 3}
+  m_PrefabInstance: {fileID: 1762682258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4416926083347132229 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6982812146204527121, guid: 64dce48905ffd9b4293e595fa6941544,
     type: 3}
   m_PrefabInstance: {fileID: 1762682258}
   m_PrefabAsset: {fileID: 0}
