@@ -26,9 +26,17 @@ public class NavMeshAvoidance : MonoBehaviour
     {
         Vector3 velocity = agent.velocity;
         velocity.y = 0;
-        float speed = agent.desiredVelocity.magnitude;
+        float agentvelocity = agent.velocity.magnitude;
+        float speed = agentvelocity;
+        float scaledSpeed = speed * 3f;
 
-        animator.SetFloat("Speed", speed);
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+        animator.SetFloat("Speed", scaledSpeed);
+        animator.applyRootMotion = false;
+        //float currentSpeed = animator.GetFloat("Speed");
+
+        //Debug.Log($"Speed raw: {speed}, scaled: {scaledSpeed}, animator: {currentSpeed}, in locomotion: {animator.GetCurrentAnimatorStateInfo(0).IsName("Locomotion")}");
         if (Input.GetKeyDown(KeyCode.S))
         {
             canMove = true;  
