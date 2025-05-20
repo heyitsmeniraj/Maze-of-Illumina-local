@@ -70,6 +70,12 @@ public class NavMeshAvoidance : MonoBehaviour
         }
     }
 
+    //DAMON: This return the current speed of the agent
+    public float GetCurrentSpeed()
+    {
+        return agent.velocity.magnitude;
+    }
+
     bool HaveTargetToGoTo ()
     {
         if (seeklights.Count > 0)

@@ -39,6 +39,10 @@ public class PickupHandler : MonoBehaviour
                 Destroy(gameObject, 0.5f);
                 UnityEngine.SceneManagement.SceneManager.LoadScene(SceneName);
             }
+            if (scoreHandler.scoreCount == 3)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("EndGame");
+            }
         }
     }
 }

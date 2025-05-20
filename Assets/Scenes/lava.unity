@@ -293,8 +293,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.936855, y: 3.2797248, z: 9.917446}
-  m_Center: {x: -0.113421015, y: -1.1398613, z: 1.8885559}
+  m_Size: {x: 6.936855, y: 3.7594364, z: 9.917446}
+  m_Center: {x: -0.113421015, y: -0.90000665, z: 1.8885559}
 --- !u!65 &36782761
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1490,6 +1490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 1070656714}
   displayDuration: 3
+  inactiveTime: 10
+  inactiveTimer: 0
 --- !u!4 &634915882
 Transform:
   m_ObjectHideFlags: 0
@@ -2920,7 +2922,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8e38e931d088223459a81c2169054400,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.207
+      value: 0.892
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e38e931d088223459a81c2169054400,
         type: 3}

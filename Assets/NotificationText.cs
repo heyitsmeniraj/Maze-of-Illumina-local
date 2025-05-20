@@ -1,8 +1,7 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.AI;
-using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
+using System.Collections;
+
 public class NotificationText : MonoBehaviour
 {
     public TextMeshProUGUI textMeshPro;
@@ -10,15 +9,30 @@ public class NotificationText : MonoBehaviour
 
     private Coroutine clearCoroutine;
 
-    private NavMeshAgent agent;
-    public string currentlevel;
     private NavMeshAvoidance playerbehaviourscript;
-    Animator animator;
     
+    public float inactiveTime = 10f;
+    public float inactiveTimer = 0f;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        playerbehaviourscript = FindFirstObjectByType<NavMeshAvoidance>();
+    }
+
+    void Update()
+    {
+        // Check if the player is inactive then add more time to the timer
+        if (playerbehaviourscript.canMove && playerbehaviourscript.GetCurrentSpeed() == 0)
+            inactiveTimer += Time.deltaTime;
+
+        // if any button is pressed then reset the timer, only if the player was not moving yet   
+        if (!playerbehaviourscript.canMove && Input.anyKey)
+        {
+            inactiveTimer = 0f;
+        }
+
+        // check if player is ianactive and restart the level if so
+        failedlevel();
     }
 
     public void ShowMessage(string message)
@@ -34,7 +48,7 @@ public class NotificationText : MonoBehaviour
         clearCoroutine = StartCoroutine(ClearAfterDelay());
     }
 
-    private System.Collections.IEnumerator ClearAfterDelay()
+    private IEnumerator ClearAfterDelay()
     {
         yield return new WaitForSeconds(displayDuration);
         textMeshPro.text = "";
@@ -43,16 +57,23 @@ public class NotificationText : MonoBehaviour
 
     public void failedlevel()
     {
-        Vector3 velocity = agent.velocity;
-        float agentvelocity = agent.velocity.magnitude;
-        float speed = animator.GetFloat("Speed");
-
-        if (animator.speed <= 0)
+        // Check if the player is in the moving state
+        if (playerbehaviourscript.canMove == true)
         {
-            if (playerbehaviourscript.canMove == true)
+            // check if the player is inactive i.e. not maving and it has been ten seconds 
+            if (inactiveTimer >= (inactiveTime - displayDuration) && playerbehaviourscript.GetCurrentSpeed() == 0)
             {
-                UnityEngine.SceneManagement.SceneManager.LoadScene(currentlevel);
+                //show message and restart the level with the current delay
+                ShowMessage("You are inactive or stuck, Restarting level...");
+                StartCoroutine(LoadSceneWithDelay());
             }
         }
+    }
+
+    IEnumerator LoadSceneWithDelay()
+    {
+        yield return new WaitForSeconds(displayDuration);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(
+                    UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 }
