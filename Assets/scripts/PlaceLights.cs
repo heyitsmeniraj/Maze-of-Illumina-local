@@ -45,7 +45,7 @@ public class PlaceLights : MonoBehaviour
         if (!finishedPlacing)
         {
             Vector3 mousePos = Input.mousePosition;
-            mousePos.z = 10;
+            mousePos.z = Camera.main.transform.position.z;
             Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
             objectPos.y = 1;
 
