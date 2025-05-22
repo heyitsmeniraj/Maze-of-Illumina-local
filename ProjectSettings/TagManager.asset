@@ -8,6 +8,7 @@ TagManager:
   - dangers
   - seeks
   - MazeWall
+  - mazewall for navmesh
   layers:
   - Default
   - TransparentFX

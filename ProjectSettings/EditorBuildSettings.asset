@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/earth.unity
     guid: bfd05bb18377f0a45bbb8e9bf83df1dd
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 4f02c677fc603f646a4bb99253fab1e3
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
