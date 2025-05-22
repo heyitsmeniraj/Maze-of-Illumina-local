@@ -2709,6 +2709,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: tutorial
+--- !u!1 &1192249088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1221041499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &1192249093
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192249088}
+  m_Enabled: 1
 --- !u!1001 &1221041499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2821,7 +2835,11 @@ PrefabInstance:
     - {fileID: 8944336655422409497, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1192249093}
   m_SourcePrefab: {fileID: 100100000, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
 --- !u!1 &1297408594
 GameObject:
@@ -3786,10 +3804,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1968426408}
-    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1968426407}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!114 &1762682259 stripped
 MonoBehaviour:
@@ -3964,14 +3978,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 67c8b33e424ccdc4486edf538ab91c5a, type: 3}
   - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
   - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
---- !u!81 &1968426407
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968426394}
-  m_Enabled: 1
 --- !u!82 &1968426408
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3984,7 +3990,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5105,7 +5111,7 @@ Transform:
   m_GameObject: {fileID: 6302609226999909779}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000003774895, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8363256, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 110.27482, y: 110.27482, z: 110.27482}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5297,7 +5303,7 @@ Transform:
   m_GameObject: {fileID: 525677404292140034}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000037748954, y: 1.110223e-16, z: 2.938736e-39, w: 1}
-  m_LocalPosition: {x: 1.8363256, y: -5.1350774e-10, z: -0.000000008729621}
+  m_LocalPosition: {x: 0, y: -5.1350774e-10, z: -0.000000008729621}
   m_LocalScale: {x: 110.2748, y: 110.274796, z: 110.2748}
   m_ConstrainProportionsScale: 0
   m_Children: []
