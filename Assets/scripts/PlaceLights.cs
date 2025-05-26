@@ -52,7 +52,7 @@ public class PlaceLights : MonoBehaviour
             if (ExcludeArea.bounds.Contains(objectPos))
             {
                 print("Cannot place light here");
-                FindAnyObjectByType<NotificationText>().ShowMessage("Cannot place light here");
+                FindAnyObjectByType<NotificationText>().ShowMessage("Cannot place light too close to the centre!");
             }
             else
             {

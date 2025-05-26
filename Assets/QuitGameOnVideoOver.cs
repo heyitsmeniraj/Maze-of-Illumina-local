@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.Video;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class QuitGameOnVideoOver : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
     public float delayBeforeQuit = 2f; // Seconds to wait after video ends
-
+    public string Scenetobeloaded;
     void Start()
     {
         if (videoPlayer == null)
@@ -27,11 +28,6 @@ public class QuitGameOnVideoOver : MonoBehaviour
     {
         yield return new WaitForSeconds(delayBeforeQuit);
         Debug.Log("Quitting now.");
-
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false; // Stop play mode in Editor
-#else
-        Application.Quit(); // Quit game in build
-#endif
+        UnityEngine.SceneManagement.SceneManager.LoadScene(Scenetobeloaded);
     }
 }

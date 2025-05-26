@@ -484,6 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 0}
   delayBeforeQuit: 2
+  Scenetobeloaded: menu
 --- !u!1 &1123852527
 GameObject:
   m_ObjectHideFlags: 0

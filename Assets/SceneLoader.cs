@@ -1,11 +1,19 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
-public class SceneLoader : MonoBehaviour
+public class SceneLoader : MonoBehaviour, IPointerEnterHandler
 {
     public string loadLevel;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public AudioSource audioSource;
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        audioSource.Play();
+    }
+
+
     public void LoadLevel()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(loadLevel);
